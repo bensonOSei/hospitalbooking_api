@@ -2,7 +2,7 @@
 
 require_once  ("../vendor/autoload.php");
 
-use BookingApp\BookingApp\Bookings\BookingView;
+use BookingApp/BookingApp/Bookings/BookingView;
 
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");

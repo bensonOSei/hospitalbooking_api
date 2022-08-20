@@ -1,6 +1,6 @@
 <?php
 
-namespace BookingApp/BookingApp/Bookings;
+namespace BookingApp\BookingApp\Bookings;
 
 class BookingView extends Booking {
     
