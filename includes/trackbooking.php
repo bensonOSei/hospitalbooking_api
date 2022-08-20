@@ -1,6 +1,6 @@
 <?php
 
-require_once str_replace("/","\\","../vendor/autoload.php");
+require_once  ("../vendor/autoload.php");
 
 use BookingApp\BookingApp\Bookings\BookingView;
 
