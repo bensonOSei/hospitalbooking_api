@@ -1,5 +1,4 @@
 <?php
-
 namespace BookingApp\BookingApp\Bookings;
 
 use BookingApp\BookingApp\Connection;

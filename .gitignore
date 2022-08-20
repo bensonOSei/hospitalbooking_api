@@ -1,2 +1,8 @@
+#ignore editor files
 ./vscode
+
+#ignore dependcy directory
 /vendor/
+
+# Ignore all environment variables
+.env
