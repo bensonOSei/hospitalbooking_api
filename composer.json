@@ -10,5 +10,7 @@
             "email": "kbenson643@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
 }
