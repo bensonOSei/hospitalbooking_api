@@ -25,6 +25,3 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET["track"])) {
 }
 
 echo json_encode($result);
-
-
-echo str_replace("/","\\","../vendor/autoload.php");
