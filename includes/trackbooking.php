@@ -1,6 +1,6 @@
 <?php
 
-require_once "..\vendor\autoload.php";
+require_once str_replace("/","\\","../vendor/autoload.php");
 
 use BookingApp\BookingApp\Bookings\BookingView;
 
@@ -25,3 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET["track"])) {
 }
 
 echo json_encode($result);
+
+
+echo str_replace("/","\\","../vendor/autoload.php");
