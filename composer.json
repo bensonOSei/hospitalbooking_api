@@ -1,4 +1,6 @@
 {
+    "name" : "bensonosei/hospitalbooking",
+    "description": "Booking App",
     "autoload": {
         "psr-4": {
             "BookingApp\\": "src/"

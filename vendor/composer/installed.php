@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'bensonosei/hospitalbooking',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1ff1f1ef1a1a415253bd21dc4a174493a7f914f0',
+        'reference' => '0da6a2d8a16571a6584a91d2b64eb6504c8b9663',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'bensonosei/hospitalbooking' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1ff1f1ef1a1a415253bd21dc4a174493a7f914f0',
+            'reference' => '0da6a2d8a16571a6584a91d2b64eb6504c8b9663',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
