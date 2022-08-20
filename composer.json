@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "BookingApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bensonOSei",
+            "email": "kbenson643@gmail.com"
+        }
+    ],
+    "require": {}
+}
