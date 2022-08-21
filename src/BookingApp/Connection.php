@@ -1,6 +1,8 @@
 <?php
-
 namespace BookingApp\BookingApp;
+
+require_once "../../vendor/autoload.php";
+
 
 use PDO;
 use Dotenv\Dotenv;
