@@ -1,6 +1,6 @@
 <?php
 
-include '..\vendor\autoload.php';
+require_once '../vendor/autoload.php';
 
 use BookingApp\BookingApp\Bookings\BookingCtr;
 
