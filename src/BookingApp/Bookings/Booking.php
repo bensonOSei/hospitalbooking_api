@@ -17,18 +17,6 @@ class Booking extends Connection
 
 
             $result = $stmt->fetch();
-            // session_start();
-            // $_SESSION['booking_id'] = $result['booking_id'];
-            // $_SESSION['booking_date'] = $result['booking_Date'];
-            // $_SESSION['booking_time'] = $result['booking_Time'];
-            // $_SESSION['status'] = $result['booking_status'];
-            // $_SESSION['firstname'] = $result['firstname'];
-            // $_SESSION['lastname'] = $result['lastname'];
-            // $_SESSION['email'] = $result['email'];
-            // $_SESSION['phone_number'] = $result['phone'];
-            // $_SESSION['user_location'] = $result['user_location'];
-            // $_SESSION['date_created'] = $result['date_Created'];
-            // $_SESSION['LAST_ACTIVITY'] = time();
 
             return $result;
         } catch (PDOException $e) {
@@ -72,10 +60,8 @@ class Booking extends Connection
             echo "Error: ". $e->getMessage();
         }
         
-        return $result;
+        $stmt = null;
 
-        
-        //$stmt = null;
-        
+        return $result;
     }
 }
