@@ -1,6 +1,7 @@
 <?php
-
 namespace BookingApp\BookingApp;
+
+require_once "../vendor/autoload.php";
 
 use PDO;
 use Dotenv\Dotenv;
@@ -39,9 +40,11 @@ class Connection
     }
 
     public function loadDotEnv()
-    {
-        $env_var = Dotenv::createImmutable(__DIR__);        
-        $env_var->load();
+    {   
+        if (file_exists(__DIR__."/.env")) :
+            $env_var = Dotenv::createImmutable(__DIR__);        
+            $env_var->load();
+        endif;
     }
 
     
