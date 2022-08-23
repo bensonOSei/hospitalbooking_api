@@ -6,11 +6,10 @@ use BookingApp\BookingApp\Bookings\BookingCtr;
 
 // Allow post request only
 header("Content-Type: application/json");
-header("Allow-Origin: *");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods, X-Requested-With");
+header("Access-Control-Allow-Headers: *");
 
 
 $data = json_decode(file_get_contents("php://input"));
