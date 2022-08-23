@@ -6,6 +6,7 @@ use BookingApp\BookingApp\Bookings\BookingCtr;
 
 // Allow post request only
 header("Content-Type: application/json");
+header("Allow-Origin: *");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: POST");
