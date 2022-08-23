@@ -8,7 +8,7 @@ use BookingApp\BookingApp\Bookings\BookingCtr;
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: POST, GET");
 header("Access-Control-Allow-Headers: *");
 
 
