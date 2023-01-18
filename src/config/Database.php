@@ -1,27 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Benson\BookingApi\config;
 
-class Database
+use Dotenv\Dotenv;
+
+class Database 
 {
-    private const HOST = "127.0.0.1";
-    private const DB_NAME = "appointment_booking";
-    private const USERNAME = "root";
-    private const PASSWORD = "";
-    private $conn;
 
-    // DB Connect
+    private string $host;
+    private string $dbName;
+    private string $dbUsername;
+    private string $dbPassowrd;
 
-    public function connect() {
-        $this->conn = null;
+
+    /**
+     * Getting the environment variables
+     * @param string $key | The key to be used. The key is the name of the environment variable
+     * @return string | The value of the environment variable
+     */
+    private function getDotEnv(string $key): string
+    {
+        $dotEnv = Dotenv::createImmutable(__DIR__ . "/../../");
+        $dotEnv->load();
+        return $_ENV[$key];
+    }
+
+    /**
+     * Creating a connection to the database
+     * @return \PDO
+     */
+    protected function connect(): \PDO
+    {
+        $this->host = $this->getDotEnv("DB_HOST");
+        $this->dbName = $this->getDotEnv("DB_NAME");
+        $this->dbUsername = $this->getDotEnv("DB_USERNAME");
+        $this->dbPassowrd = $this->getDotEnv("DB_PASSWORD");
 
         try {
-            $this->conn = new \PDO("mysql:host=" . self::HOST . ";dbname=" . self::DB_NAME, self::USERNAME, self::PASSWORD);
-            $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $conn = new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbName, $this->dbUsername, $this->dbPassowrd);
+            $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $conn->setAttribute( \PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+            $result = $conn;
         } catch (\PDOException $exception) {
             echo "Connection error:  . {$exception->getMessage()}";
         }
 
-        return $this->conn;
+        $conn = null;
+        return $result;
     }
 }
