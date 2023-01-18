@@ -1,0 +1,19 @@
+{
+    "name": "benson/booking-api",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Benson\\BookingApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bensonOSei",
+            "email": "kbenson643@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
