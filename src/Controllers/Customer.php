@@ -26,8 +26,11 @@ class Customer extends User implements InterfacesUser
 
     public function signUp()
     {
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+        $idPrefix = "CST-";
+
         if ($this->createuser(
-            "UCT",
+            $idPrefix,
             $this->firstname,
             $this->lastname,
             $this->email,
@@ -40,6 +43,17 @@ class Customer extends User implements InterfacesUser
         }
     }
 
+    public function isAvailable($email)
+    {
+        if (count($this->getUserEmail($email)) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
+    
     public function signIn()
     {
     }

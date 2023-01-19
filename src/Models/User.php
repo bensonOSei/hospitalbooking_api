@@ -109,7 +109,7 @@ class User extends Database
         }
         // $this->conn = null;
         return $result;
-    }   
+    }
 
     /**
      * Query the user's email
@@ -119,6 +119,7 @@ class User extends Database
     protected function getUserEmail(string $email): ?array
     {
         $this->email = $email;
+        $this->conn = $this->connect();
 
         try {
             $sql = "SELECT * FROM $this->table WHERE email = ?";
@@ -126,7 +127,7 @@ class User extends Database
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([$this->email]);
 
-            $result = $stmt->fetch();
+            $result = $stmt->fetchAll();
         } catch (\PDOException $exception) {
             echo "Connection error:  . {$exception->getMessage()}";
         }

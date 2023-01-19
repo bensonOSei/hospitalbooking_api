@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Benson\BookingApi\Validations;
 
-class FormValidation 
+class FormValidation
 {
     /**
      * The data to be validated
@@ -48,7 +49,7 @@ class FormValidation
                         $this->errors[$key] = "The $key field is required";
                     }
                 }
-                if($rule === "text") {
+                if ($rule === "text") {
                     if (!preg_match("/^[a-zA-Z ]*$/", $this->data[$key])) {
                         $this->errors[$key] = "The $key field must be a valid text";
                     }
@@ -64,7 +65,7 @@ class FormValidation
                     }
                 }
                 if ($rule === "password") {
-                    if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/", $this->data[$key])) {
+                    if (strlen($this->data[$key]) < 8) {
                         $this->errors[$key] = "The $key field must be a valid password";
                     }
                 }
@@ -75,10 +76,47 @@ class FormValidation
 
     /**
      * The method that checks if there are errors
-     * @return bool | True if there are errors, false otherwise
+     * @return bool | `true` if there are errors, `false` otherwise
      */
     public function hasErrors(): bool
     {
-        return count($this->errors) > 0;
+        return count($this->validate()) > 0;
+    }
+
+
+    /**
+     * Sanitize the email provided by the user
+     * @param string $data | The email to be sanitized
+     * @return string  The sanitized email
+     */
+    public static function sanitizeEmail($data): string
+    {
+        return filter_var($data, FILTER_SANITIZE_EMAIL);
+    }
+
+    /**
+     * Sanitize the text inputs provided by the user
+     * @param string $data | The text input to be sanitized
+     * @return string  The sanitized text inputs
+     */
+    public static function sanitizeText($data): string
+    {
+        # Remove whitespace from the beginning and end of the string
+        $data = trim($data);
+        # Remove backslashes from the string
+        $data = stripslashes($data);
+        # Convert special characters to HTML entities
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    /**
+     * Sanitize the phone number provided by the user
+     * @param string $data | The phone number to be sanitized
+     * @return string  The sanitized phone number
+     */
+    public static function sanitizePhoneNumber($data): string
+    {
+        return filter_var($data, FILTER_SANITIZE_NUMBER_INT);
     }
 }

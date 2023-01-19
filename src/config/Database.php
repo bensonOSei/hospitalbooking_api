@@ -8,10 +8,28 @@ use Dotenv\Dotenv;
 
 class Database 
 {
-
+    /**
+     * The database host
+     * @var string
+     */
     private string $host;
+
+    /**
+     * The database name
+     * @var string
+     */
     private string $dbName;
+
+    /**
+     * The database username
+     * @var string
+     */
     private string $dbUsername;
+
+    /**
+     * The database password
+     * @var string
+     */
     private string $dbPassowrd;
 
 
@@ -43,6 +61,7 @@ class Database
             $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $conn->setAttribute( \PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
             $result = $conn;
+       
         } catch (\PDOException $exception) {
             echo "Connection error:  . {$exception->getMessage()}";
         }
